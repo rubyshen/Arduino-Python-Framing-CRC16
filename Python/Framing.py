@@ -85,8 +85,11 @@ class Framing(object):
         buf_index+=1
         
         #Send data
-        for i in range(0,buf_index,1):
-            serial.write(chr(framed_data[i]))
+        #Ruby
+        bbb = bytes(framed_data)
+        serial.write(bbb)
+        #for i in range(0,buf_index,1):
+            #serial.write(chr(framed_data[i]))
     
     def receiveFramedData(self, data, serial):       
         checkCRC=CRC_16.CRC_16()
